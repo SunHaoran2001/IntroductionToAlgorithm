@@ -19,27 +19,10 @@ void MERGE(int *A, int p, int q, int r)
     for (int k = p; k <= r; k++)
     {
         if (L[i] <= R[j])
-        {
-            A[k] = L[i];
-            i++;
-        }
-        else
-        {
-            A[k] = R[j];
-            j++;
-        }
-    }
-}
 
-void MERGE_SORT(int *A, int p, int r)
-{
-    int q;
-    if (p < r)
-    {
-        q = (p + r) / 2;
-        MERGE_SORT(A, p, q);
-        MERGE_SORT(A, q + 1, r);
-        MERGE(A, p, q, r);
+            A[k] = L[i++];
+        else
+            A[k] = R[j++];
     }
 }
 
@@ -58,29 +41,9 @@ void Merge(int *A, int left, int mid, int right)
     for (int k = left; k <= right; k++)
     {
         if (L[i] <= R[j])
-        {
-            A[k] = L[i];
-            i++;
-        }
+            A[k] = L[i++];
         else
-        {
-            A[k] = R[j];
-            j++;
-        }
-    }
-}
-
-void MergeU2(int *A, int left, int mid, int right);
-void MergeU(int *A, int left, int mid, int right);
-void MergeSort(int *A, int left, int right)
-{
-    int mid;
-    if (left < right)
-    {
-        mid = (left + right) / 2;
-        MergeSort(A, left, mid);
-        MergeSort(A, mid + 1, right);
-        MergeU2(A, left, mid, right);
+            A[k] = R[j++];
     }
 }
 
@@ -125,6 +88,30 @@ void MergeU2(int *A, int left, int mid, int right)
     for (i = left, k = 0; i <= right; i++)
     {
         A[i] = B[k++];
+    }
+}
+
+void MERGE_SORT(int *A, int p, int r)
+{
+    int q;
+    if (p < r)
+    {
+        q = (p + r) / 2;
+        MERGE_SORT(A, p, q);
+        MERGE_SORT(A, q + 1, r);
+        MERGE(A, p, q, r);
+    }
+}
+
+void MergeSort(int *A, int left, int right)
+{
+    int mid;
+    if (left < right)
+    {
+        mid = (left + right) / 2;
+        MergeSort(A, left, mid);
+        MergeSort(A, mid + 1, right);
+        MERGE(A, left, mid, right);
     }
 }
 
