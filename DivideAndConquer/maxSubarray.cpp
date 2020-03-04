@@ -1,9 +1,7 @@
 #include <iostream>
 #include <climits>
 using namespace std;
-/*INFO
-*   auther: Sunhaoran
-*/
+//仍有问题
 constexpr int INF = 0x3f3f3f3f; //无穷大
 
 typedef struct
