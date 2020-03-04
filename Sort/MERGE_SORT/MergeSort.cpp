@@ -18,6 +18,7 @@ void MERGE(int *A, int p, int q, int r)
     L[n1 + 1] = INF;
     R[n2 + 1] = INF;
     int i = 1, j = 1;
+
     for (int k = p; k <= r; k++)
     {
         if (L[i] <= R[j])
