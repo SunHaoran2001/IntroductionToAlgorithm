@@ -2,8 +2,10 @@
 
 using namespace std;
 
-const int INF = 65535;
-
+const int INF = 0x3f3f3f3f; //无穷大
+/*
+*  可以利用memset(a,0x3f,sizeof(a));  把一位设置为无穷大
+*/
 void MERGE(int *A, int p, int q, int r)
 {
     int n1 = q - p + 1;
