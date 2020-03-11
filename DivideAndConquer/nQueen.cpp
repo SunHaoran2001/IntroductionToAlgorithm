@@ -6,13 +6,17 @@ int queenPos[100];
 void NQueen(int k, int n)
 {
     int i;
+    if (n < 4)
+    {
+        cout << "no solute!" << endl;
+        return;
+    }
     if (k == n) //N个皇后摆好
     {
-        /*
-        for (i = 0; i < n; i++)
+        for (i = 0; i < n - 1; i++)
             cout << queenPos[i] + 1 << " ";
-            */
-        for (int i = 0; i < n; i++)
+        cout << queenPos[n - 1] + 1 << endl;
+        /*for (int i = 0; i < n; i++)
         {
             for (int j = -1; j < n - 1; j++)
             {
@@ -25,7 +29,7 @@ void NQueen(int k, int n)
             if ((i + 1) % n == 0)
                 cout << "---------------" << endl;
         }
-        return;
+        return;*/
     }
     for (i = 0; i < n; i++) //尝试第k个皇后的位置   前k-1皇后摆的列
     {
@@ -48,6 +52,5 @@ int main()
     int n;
     cin >> n;
     NQueen(0, n);
-    system("pause");
     return 0;
 }
